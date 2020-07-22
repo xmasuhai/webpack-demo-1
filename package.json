@@ -1,0 +1,11 @@
+{
+  "name": "webpack-demo-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "4",
+    "webpack-cli": "3",
+    "webpack-dev-server": "3"
+  }
+}
