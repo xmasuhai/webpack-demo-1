@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -5,6 +6,11 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
-  }
+    filename: 'index.[contenthash].js'
+  },
+  plugins: [new HtmlWebpackPlugin({
+    title: 'webpack',
+    // filename: 'test.html',
+    template: 'src/assets/index.html'
+  })]
 };
