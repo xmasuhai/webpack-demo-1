@@ -12,15 +12,19 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.[contenthash].js'
   },
-  plugins: [new HtmlWebpackPlugin({
+  plugins: [
+    new HtmlWebpackPlugin({
     title: 'webpack',
-    // filename: 'test.html',
     template: 'src/assets/index.html'
-  })],
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.css$/,
+        // mode: 'development'
+        // `yarn start`
+        // css-loader
         use: [ 'style-loader', 'css-loader' ]
       }
     ]
