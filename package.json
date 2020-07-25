@@ -428,7 +428,7 @@
     "webpack": "4",
     "webpack-cli": "3",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-dev-server": "3",
+    "webpack-dev-server": "^3.11.0",
     "webpack-log": "^2.0.0",
     "webpack-sources": "^1.4.3",
     "websocket-driver": "^0.7.4",
@@ -452,7 +452,9 @@
   },
   "scripts": {
     "build": "rm -rf dist && webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
