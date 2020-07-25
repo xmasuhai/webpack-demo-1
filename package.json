@@ -446,7 +446,9 @@
     "yargs-parser": "^13.1.2"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^4.3.0"
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1"
   },
   "scripts": {
     "build": "rm -rf dist && webpack",

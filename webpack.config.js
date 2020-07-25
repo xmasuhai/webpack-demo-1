@@ -12,5 +12,14 @@ module.exports = {
     title: 'webpack',
     // filename: 'test.html',
     template: 'src/assets/index.html'
-  })]
+  })],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
+    ]
+  }
 };
+
