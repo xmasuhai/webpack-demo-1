@@ -1,31 +1,28 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const base = require('./webpack.config.base.js')
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  ...base,
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
   },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.[contenthash].js'
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-    title: 'webpack',
-    template: 'src/assets/index.html'
-    }),
-  ],
+  mode: 'development',
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         // mode: 'development'
         // `yarn start`
         // css-loader
-        use: [ 'style-loader', 'css-loader' ]
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              injectType: 'singletonStyleTag'
+            }
+          },
+          'css-loader'],
       }
     ]
   }
