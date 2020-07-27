@@ -1,1 +1,0 @@
-{"version":3,"sources":["y.less"],"names":[],"mappings":"AAGA,KADA,KAEE,OAAA,KACA,cAAA","file":"y.min.css","sourcesContent":["@height: 80vh;\r\n\r\nhtml,\r\nbody {\r\n  height: @height;\r\n  border-radius: 5px;\r\n}"]}

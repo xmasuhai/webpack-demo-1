@@ -1,21 +1,27 @@
 let HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const styleLoader = {
-  loader: "style-loader",
-  options: {
-    injectType: "singletonStyleTag",
-  },
-};
-const scssLoader = {
-  loader: "sass-loader",
-  options: {
-    // Prefer `dart-sass`
-    implementation: require("dart-sass"),
-    sassOptions: {
-      fiber: require("fibers"),
+
+const styleLoader = () => {
+  return {
+    loader: "style-loader",
+    options: {
+      injectType: "singletonStyleTag",
     },
-  },
-};
+  }
+}
+
+const scssLoader = () => {
+  return {
+    loader: "sass-loader",
+    options: {
+      // Prefer `dart-sass`
+      implementation: require("dart-sass"),
+      sassOptions: {
+        fiber: require("fibers"),
+      },
+    },
+  }
+}
 
 module.exports = {
   entry: "./src/index.js",
@@ -38,7 +44,7 @@ module.exports = {
         // css-loader
         use: [
           // Creates `style` nodes from JS strings
-          styleLoader,
+          styleLoader(),
           // Translates CSS into CommonJS
           "css-loader",
           "postcss-loader",
@@ -48,23 +54,29 @@ module.exports = {
         test: /\.scss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          styleLoader,
+          styleLoader(),
           // Translates CSS into CommonJS
           "css-loader",
           "postcss-loader",
           // Compiles Scss to CSS
-          scssLoader,
+          scssLoader(),
         ],
       },
       // rules[1]
       {
         test: /\.less$/i,
-        loader: [styleLoader, "css-loader", "postcss-loader", "less-loader"], // compiles Less to CSS
+        loader: [styleLoader(), "css-loader", "postcss-loader", "less-loader"], // compiles Less to CSS
       },
       {
         test: /\.styl$/i,
-        loader: [styleLoader, "css-loader", "postcss-loader", "stylus-loader"],
+        loader: [styleLoader(), "css-loader", "postcss-loader", "stylus-loader"],
       },
+      {
+        test: /\.(png|svg|je?pg|gif)$/i,
+        use: [
+          'file-loader',
+        ],
+      }
     ],
   },
 };

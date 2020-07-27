@@ -1,1 +1,0 @@
-{"version":3,"sources":["x.scss"],"names":[],"mappings":"AAAA,KACE,WAAY,QAGd,YACE,QAAS,GACT,QAAS","file":"x.min.css","sourcesContent":["$orangered: #ff4500;\r\n\r\nbody {\r\n  background: $orangered;\r\n\r\n  &::after {\r\n    content: '';\r\n    display: flex;\r\n  }\r\n}"]}

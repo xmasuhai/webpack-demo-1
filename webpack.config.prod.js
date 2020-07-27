@@ -56,6 +56,7 @@ module.exports = {
         test: /\.styl$/i,
         loader: [cssLoaderPlugin, "css-loader","postcss-loader","stylus-loader"],
       },
+      base.module.rules[4],
     ],
   },
 };

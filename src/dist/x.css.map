@@ -1,1 +1,0 @@
-{"version":3,"names":[],"mappings":"","sources":["x.scss"],"sourcesContent":["$orangered: #ff4500;\r\n\r\nbody {\r\n  background: $orangered;\r\n\r\n  &::after {\r\n    content: '';\r\n    display: flex;\r\n  }\r\n}"],"file":"x.css"}
