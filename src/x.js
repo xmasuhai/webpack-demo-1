@@ -1,12 +1,5 @@
-import css from './x.css'
-console.dir(css)
-console.log(css.toString())
+import './x.scss'
+import './y.less'
+import './z.styl'
 
 export default 'xxx'
-/*
-export default function printMe() {
-  console.log('I get called from print.js!');
-    } */
-
-import './y.css'
-import './z.css'

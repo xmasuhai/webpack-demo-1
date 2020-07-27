@@ -1,0 +1,10 @@
+$orangered: #ff4500;
+
+body {
+  background: $orangered;
+
+  &::after {
+    content: '';
+    display: flex;
+  }
+}
