@@ -5,6 +5,8 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist",
+    publicPath: '/dist/',
+    port: 3000,
   },
   mode: "development",
   module: {

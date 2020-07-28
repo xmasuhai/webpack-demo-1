@@ -28,6 +28,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.[contenthash].js",
+    publicPath: __dirname + '/dist/',
+    chunkFilename: "[name].js",
   },
   plugins: [
     new HtmlWebpackPlugin({
