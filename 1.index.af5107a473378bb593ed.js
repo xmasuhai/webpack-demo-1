@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{5:function(n,o,c){"use strict";c.r(o),c.d(o,"default",(function(){return r}));var e=c(1),i=c(0);function r(n,o){return console.log("我是一个懒加载的模块"),e.div.innerHTML+=`\n  <img src="${i.a}">\n`,console.log(n*o)}}}]);
