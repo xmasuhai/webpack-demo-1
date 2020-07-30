@@ -5,5 +5,5 @@ mv dist/* ./ &&
 rm -rf dist;
 git add . &&
 git commit -m "preview gh-pages" &&
-git push &&
+git push gitee gh-pages:master &&
 git checkout -
