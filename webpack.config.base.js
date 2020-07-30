@@ -1,5 +1,8 @@
 let HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const HappyPack = require("happypack");
+const os = require("os");
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 const styleLoader = () => {
   return {
@@ -7,8 +10,8 @@ const styleLoader = () => {
     options: {
       injectType: "singletonStyleTag",
     },
-  }
-}
+  };
+};
 
 const scssLoader = () => {
   return {
@@ -20,8 +23,8 @@ const scssLoader = () => {
         fiber: require("fibers"),
       },
     },
-  }
-}
+  };
+};
 
 module.exports = {
   entry: "./src/index.js",
@@ -31,12 +34,6 @@ module.exports = {
     // publicPath: "./dist",
     // chunkFilename: "[name].js",
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "webpack",
-      template: "src/assets/index.html",
-    }),
-  ],
   module: {
     rules: [
       {
@@ -48,9 +45,10 @@ module.exports = {
           // Creates `style` nodes from JS strings
           styleLoader(),
           // Translates CSS into CommonJS
-          "css-loader",
+          "happypack?id=css",
           "postcss-loader",
         ],
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/i,
@@ -71,14 +69,32 @@ module.exports = {
       },
       {
         test: /\.styl$/i,
-        loader: [styleLoader(), "css-loader", "postcss-loader", "stylus-loader"],
+        loader: [
+          styleLoader(),
+          "css-loader",
+          "postcss-loader",
+          "stylus-loader",
+        ],
       },
       {
         test: /\.(png|svg|je?pg|gif)$/i,
-        use: [
-          'file-loader',
-        ],
-      }
+        use: ["file-loader"],
+      },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "webpack",
+      template: "src/assets/index.html",
+    }),
+    new HappyPack({
+      //用id来标识 happypack处理那里类文件
+      id: "css",
+      //共享进程池
+      threadPool: happyThreadPool,
+      //允许 HappyPack 输出日志
+      verbose: true,
+      loaders: ["css-loader?cacheDirectory"],
+    }),
+  ],
 };

@@ -425,8 +425,8 @@
     "watchpack": "^1.7.2",
     "watchpack-chokidar2": "^2.0.0",
     "wbuf": "^1.7.3",
-    "webpack": "4",
-    "webpack-cli": "3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
     "webpack-log": "^2.0.0",
@@ -447,12 +447,15 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.5",
+    "caniuse": "^0.1.3",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
     "dart-sass": "^1.25.0",
     "fibers": "^5.0.0",
     "file-loader": "^6.0.0",
+    "happypack": "^5.0.1",
     "html-webpack-plugin": "^4.3.0",
+    "image-webpack-loader": "^6.0.0",
     "less-loader": "^6.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-cssnext": "^3.1.0",
@@ -461,7 +464,8 @@
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "stylus": "^0.54.8",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "url-loader": "^4.1.0"
   },
   "browserslist": [
     "defaults",
